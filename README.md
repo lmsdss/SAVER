@@ -2,6 +2,8 @@
 
 **Less from More: Reinforcing Sparse Video Reasoning from Dense References**
 
+[Project Page](https://lmsdss.github.io/SAVER/) · [Models](https://huggingface.co/collections/lmsdss/saver-less-from-more)
+
 SAVER is a dense-to-sparse post-training framework for video reasoning under limited temporal evidence. This initial release provides evaluation code and links to model checkpoints. Training code will be released in a future update.
 
 ## Overview
