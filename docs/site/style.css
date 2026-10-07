@@ -11,3 +11,5 @@
 @media(max-width:620px){.lab-logo,.lab-logo img{width:52px;height:52px}.setting-rates{font-size:.75rem;line-height:1.5}.facts p{font-size:.8rem}.facts>div{padding:18px 6px}}
 
 .hero .lab-logo{margin-bottom:22px}
+
+.setting-rates{max-width:100%;padding-inline:8px}.segmented{flex-wrap:wrap}.results-controls fieldset{min-width:0}@media(max-width:620px){.segmented button{padding-inline:8px}.setting-rates{font-size:.75rem}}
