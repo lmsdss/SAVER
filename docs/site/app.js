@@ -48,3 +48,64 @@ document.querySelector('#copy-citation').addEventListener('click', async () => {
     status.textContent = 'Citation selected. Press Ctrl+C or ⌘C to copy.';
   }
 });
+
+// The overview illustrates the three method phases; intervals are schematic.
+const methodAnimation = document.querySelector('#method-animation');
+const phaseTabs = [...methodAnimation.querySelectorAll('[data-phase]')];
+const phasePanels = [...methodAnimation.querySelectorAll('[role="tabpanel"]')];
+const playButton = document.querySelector('#animation-play');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let phase = 0;
+let animationTimer = null;
+let animationVisible = false;
+let animationEnabled = !reduceMotion.matches;
+function showPhase(index) {
+  phase = index;
+  phaseTabs.forEach((tab, i) => {
+    tab.setAttribute('aria-selected', String(i === phase));
+    tab.tabIndex = i === phase ? 0 : -1;
+    phasePanels[i].hidden = i !== phase;
+  });
+}
+function syncAnimation() {
+  if (animationTimer) clearInterval(animationTimer);
+  animationTimer = null;
+  const playing = animationEnabled && animationVisible && !document.hidden;
+  methodAnimation.dataset.playing = String(playing);
+  playButton.textContent = animationEnabled ? 'Pause' : 'Play';
+  playButton.setAttribute('aria-label', animationEnabled ? 'Pause method animation' : 'Play method animation');
+  if (playing) animationTimer = setInterval(() => showPhase((phase + 1) % 3), 5200);
+}
+phaseTabs.forEach((tab, i) => {
+  tab.addEventListener('click', () => {
+    animationEnabled = false;
+    showPhase(i);
+    syncAnimation();
+  });
+  tab.addEventListener('keydown', event => {
+    let next;
+    if (event.key === 'ArrowRight') next = (i + 1) % 3;
+    if (event.key === 'ArrowLeft') next = (i + 2) % 3;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = 2;
+    if (next === undefined) return;
+    event.preventDefault();
+    animationEnabled = false;
+    showPhase(next);
+    phaseTabs[next].focus();
+    syncAnimation();
+  });
+});
+playButton.addEventListener('click', () => {
+  animationEnabled = !animationEnabled;
+  syncAnimation();
+});
+new IntersectionObserver(entries => {
+  animationVisible = entries[0].isIntersecting;
+  syncAnimation();
+}, {threshold: 0.25}).observe(methodAnimation);
+document.addEventListener('visibilitychange', syncAnimation);
+reduceMotion.addEventListener('change', () => {
+  if (reduceMotion.matches) animationEnabled = false;
+  syncAnimation();
+});
