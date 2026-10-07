@@ -1,6 +1,6 @@
 # SAVER project website
 
-Live project page: https://lmsdss.github.io/SAVER/
+Live project page: https://wenfangsun.cn/SAVER/
 
 The static website source is in `docs/site/`. It uses plain HTML, CSS, and JavaScript with no build dependencies. Preview it from the repository root:
 
