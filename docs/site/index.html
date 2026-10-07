@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <link rel="canonical" href="https://wenfangsun.cn/SAVER/">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=purple">
-  <link rel="stylesheet" href="style.css?v=purple">
+  <link rel="stylesheet" href="style.css?v=vislab">
   <title>SAVER · Less from More</title>
   <script src="app.js" defer></script>
 </head>
@@ -23,7 +23,7 @@
 </header>
 <main id="main">
   <section class="hero container" aria-labelledby="title">
-    <div class="eyebrow"><span class="mini-film" aria-hidden="true">▥</span> UNIVERSITY OF AMSTERDAM · VIDEO REASONING</div>
+    <a class="lab-logo" href="https://ivi.fnwi.uva.nl/vislab/" aria-label="VIS Lab website"><img src="assets/vislab-logo.png" alt="VIS Lab" width="500" height="500"></a>
     <p class="project-name">SAVER</p>
     <h1 id="title">Less from <em>More.</em></h1>
     <p class="paper-title">Reinforcing Sparse Video Reasoning<br class="desktop-break"> from Dense References</p>
@@ -34,9 +34,8 @@
 
   </section>
   <section class="facts container" aria-label="Research at a glance">
-    <div><strong>9</strong><p>benchmarks</p></div><div><strong>3</strong><p>model sizes</p></div><div><strong>72.7<span>%</span></strong><p>fewer video-QA frames</p></div>
+    <div><strong>9</strong><p>benchmarks</p></div><div><strong>3</strong><p>model sizes</p></div><div><strong>3</strong><p>frame-rate settings</p><span class="setting-rates">0.1 · 0.5 · 2.0 fps</span></div>
   </section>
-  <p class="fact-note container">139 → 38 average frames for video QA · 2.0 → 0.1 fps</p>
   <section id="method" class="section container">
     <div class="section-heading"><div><h2>More evidence in training.<br>Less input at inference.</h2></div><p class="section-intro">Dense and sparse views share one policy. The stronger dense prediction guides its sparse counterpart.</p></div>
     <figure class="framework figure-panel"><a href="assets/framework.png" target="_blank" rel="noopener" aria-label="Open full-resolution SAVER framework"><img src="assets/framework.png" width="2400" height="1208" alt="SAVER framework with paired sparse and dense video views, a shared Qwen policy, and format, grounding, and reliability-gated reference rewards." fetchpriority="high"></a><figcaption><span>Dense-to-sparse reinforcement post-training</span></figcaption></figure>
@@ -65,8 +64,7 @@
     </section>
   </section>
   <section id="examples" class="example-band"><div class="container"><div class="section-heading"><div><h2>Preserving temporal evidence.</h2></div><p class="section-intro">In this qualitative example, sparse Qwen3.5 predicts a broad interval. SAVER produces a tighter interval closer to the ground truth.</p></div><figure class="figure-panel"><a href="assets/grounding-example.png" target="_blank" rel="noopener" aria-label="Open full-resolution temporal grounding example"><img src="assets/grounding-example.png" width="1900" height="841" loading="lazy" alt="Pouring orange juice example: ground truth 7.5 to 13 seconds, sparse Qwen3.5 prediction 5.7 to 13.9 seconds, SAVER prediction 6.3 to 12.3 seconds."></a><figcaption><span>Qualitative temporal grounding example from the manuscript</span></figcaption></figure><p class="limitations"><strong>What remains challenging?</strong> Sparse frames can miss a key event entirely or confuse repeated actions. SAVER improves aggregate performance but cannot recover visual evidence that was never observed.</p></div></section>
-  <section id="models" class="section container"><div class="section-heading"><div><h2>Three sizes.<br>One sparse-input recipe.</h2></div><p class="section-intro">Qwen3.5-based checkpoints, available on Hugging Face.</p></div><div class="model-grid"><a href="https://huggingface.co/lmsdss/SAVER-0.8B" class="model-card"><h3>SAVER <strong>0.8B</strong></h3><span class="model-link">View on Hugging Face</span></a><a href="https://huggingface.co/lmsdss/SAVER-2B" class="model-card featured"><h3>SAVER <strong>2B</strong></h3><span class="model-link">View on Hugging Face</span></a><a href="https://huggingface.co/lmsdss/SAVER-4B" class="model-card"><h3>SAVER <strong>4B</strong></h3><span class="model-link">View on Hugging Face</span></a></div><div class="quickstart"><div><h3>Evaluate at 0.1 fps</h3><a href="https://github.com/lmsdss/SAVER#installation">Setup &amp; evaluation instructions</a></div><pre><code>MODEL_PATH=lmsdss/SAVER-2B FPS=0.1 NPROC_PER_NODE=1 \
-  bash scripts/eval/evaluate.sh</code></pre></div></section>
+  <section id="models" class="section container"><div class="section-heading"><div><h2>Three sizes.<br>One sparse-input recipe.</h2></div><p class="section-intro">Qwen3.5-based checkpoints, available on Hugging Face.</p></div><div class="model-grid"><a href="https://huggingface.co/lmsdss/SAVER-0.8B" class="model-card"><h3>SAVER <strong>0.8B</strong></h3><span class="model-link">View on Hugging Face</span></a><a href="https://huggingface.co/lmsdss/SAVER-2B" class="model-card featured"><h3>SAVER <strong>2B</strong></h3><span class="model-link">View on Hugging Face</span></a><a href="https://huggingface.co/lmsdss/SAVER-4B" class="model-card"><h3>SAVER <strong>4B</strong></h3><span class="model-link">View on Hugging Face</span></a></div></section>
   <section id="citation" class="citation-band"><div class="container citation-grid"><div><h2>Citation</h2></div><div class="citation-code"><button id="copy-citation" type="button">Copy BibTeX</button><pre><code id="bibtex">@misc{sun2026less,
   title  = {Less from More: Reinforcing Sparse Video
             Reasoning from Dense References},
