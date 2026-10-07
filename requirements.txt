@@ -1,0 +1,27 @@
+# Evaluation dependencies; no GRPO or DeepSpeed training stack.
+torch==2.8.0
+torchvision==0.23.0
+transformers==5.4.0
+accelerate==1.11.0
+datasets==5.0.0
+math-verify==0.8.0
+PyYAML
+Pillow
+numpy
+pandas
+scikit-learn
+tqdm
+huggingface_hub==1.8.0
+safetensors
+av
+decord==0.6.0
+loguru
+pytablewriter
+sacrebleu>=1.5.0
+evaluate>=0.4.0
+sqlitedict==2.1.0
+tenacity==8.3.0
+requests
+packaging
+openai
+aiohttp
