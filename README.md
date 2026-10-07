@@ -14,7 +14,6 @@ SAVER is a dense-to-sparse post-training framework for video reasoning under lim
 
 SAVER uses dense video responses as references to reinforce reasoning from sparse video inputs. A reference reward encourages agreement with the dense prediction when it achieves a higher grounding reward, alongside format and grounding rewards.
 
-[View the framework as PDF](docs/assets/framework.pdf).
 
 ## Model checkpoints
 
