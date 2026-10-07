@@ -4,6 +4,18 @@
 
 SAVER is a dense-to-sparse post-training framework for video reasoning under limited temporal evidence. This initial release provides evaluation code and links to model checkpoints. Training code will be released in a future update.
 
+## Overview
+
+<p align="center">
+  <a href="docs/assets/framework.pdf">
+    <img src="docs/assets/framework.png" alt="SAVER framework: sparse and dense video views produce responses through a shared policy model, with format, grounding, and dense-reference rewards." width="100%">
+  </a>
+</p>
+
+SAVER uses dense video responses as references to reinforce reasoning from sparse video inputs. A reference reward encourages agreement with the dense prediction when it achieves a higher grounding reward, alongside format and grounding rewards.
+
+[View the framework as PDF](docs/assets/framework.pdf).
+
 ## Model checkpoints
 
 | Model | Hugging Face |
