@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7652A3">
+  <meta name="description" content="SAVER: Less from More. Reinforcing sparse video reasoning from dense references.">
+  <meta property="og:title" content="SAVER · Less from More">
+  <meta property="og:description" content="Reinforcing Sparse Video Reasoning from Dense References. A research project from the University of Amsterdam.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://wenfangsun.cn/SAVER/">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=purple">
+  <link rel="stylesheet" href="style.css?v=author-links">
+  <title>SAVER · Less from More</title>
+  <script src="app.js?v=animation" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <a class="wordmark" href="#" aria-label="SAVER home"><span class="brand-symbol" aria-hidden="true">S</span>SAVER</a>
+  <nav aria-label="Main navigation"><a href="#method">Method</a><a href="#results">Results</a><a href="#models">Models</a><a href="#citation">Citation</a></nav>
+  <a class="header-code" href="https://github.com/lmsdss/SAVER">GitHub <span aria-hidden="true">↗</span></a>
+</header>
+<main id="main">
+  <section class="hero container" aria-labelledby="title">
+    <a class="lab-logo" href="https://ivi.fnwi.uva.nl/vislab/" aria-label="VIS Lab website"><img src="assets/vislab-logo.png" alt="VIS Lab" width="500" height="500"></a>
+    <h1 id="title">Less from <em>More.</em></h1>
+    <p class="paper-title">Reinforcing Sparse Video Reasoning<br class="desktop-break"> from Dense References</p>
+    <p class="authors"><a href="https://wenfangsun.cn/">Wenfang Sun</a> <span>·</span> <a href="https://yingjundu.github.io/">Yingjun Du</a> <span>·</span> <a href="https://www.ceessnoek.info/">Cees G. M. Snoek</a></p>
+    <p class="affiliation">University of Amsterdam</p>
+    <div class="hero-actions"><a class="button primary" href="https://github.com/lmsdss/SAVER"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.3 11.3 0 0 0-3.6 22c.6.1.8-.3.8-.5v-2c-3.3.7-4-1.4-4-1.4-.5-1.3-1.3-1.6-1.3-1.6-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.4-1.3-5.4-5.6 0-1.2.4-2.2 1.2-3-.1-.3-.5-1.5.1-3 0 0 1-.3 3.1 1.2a10.8 10.8 0 0 1 5.7 0C16.8 5.2 17.8 5.5 17.8 5.5c.6 1.5.2 2.7.1 3 .8.8 1.2 1.8 1.2 3 0 4.3-2.8 5.3-5.4 5.6.4.4.8 1.1.8 2.2v3c0 .3.2.6.8.5A11.3 11.3 0 0 0 12 .8Z"/></svg>Code</a><a class="button" href="https://huggingface.co/collections/lmsdss/saver-less-from-more"><span aria-hidden="true">🤗</span> Models</a><a class="button quiet" href="#abstract">Read the abstract</a></div>
+    <p class="hero-summary">Learn from dense video. Reason with sparse frames.</p>
+
+  </section>
+  <section class="facts container" aria-label="Research at a glance">
+    <div><strong>9</strong><p>benchmarks</p></div><div><strong>3</strong><p>model sizes</p></div><div><strong>5</strong><p>frame-rate settings</p><span class="setting-rates">0.1 · 0.2 · 0.5 · 1.0 · 2.0 fps</span></div>
+  </section>
+  <section id="method" class="section container">
+    <div class="section-heading"><div><h2>More evidence in training.<br>Less input at inference.</h2></div><p class="section-intro">Dense and sparse views share one policy. The stronger dense prediction guides its sparse counterpart.</p></div>
+    <figure class="framework figure-panel"><a href="assets/framework.png" target="_blank" rel="noopener" aria-label="Open full-resolution SAVER framework"><img src="assets/framework.png" width="2400" height="1208" alt="SAVER framework with paired sparse and dense video views, a shared Qwen policy, and format, grounding, and reliability-gated reference rewards." fetchpriority="high"></a><figcaption><span>Dense-to-sparse reinforcement post-training</span></figcaption></figure>
+    <div class="method-animation" id="method-animation" data-playing="false">
+      <div class="animation-toolbar"><div class="animation-tabs" role="tablist" aria-label="SAVER process"><button type="button" id="phase-tab-0" role="tab" aria-controls="phase-0" aria-selected="true" tabindex="0" data-phase="0">Training views</button><button type="button" id="phase-tab-1" role="tab" aria-controls="phase-1" aria-selected="false" tabindex="-1" data-phase="1">Reference reward</button><button type="button" id="phase-tab-2" role="tab" aria-controls="phase-2" aria-selected="false" tabindex="-1" data-phase="2">Inference</button></div><button type="button" class="animation-play" id="animation-play" aria-label="Play method animation">Play</button></div>
+      <div class="animation-scene">
+        <div class="animation-phase" id="phase-0" role="tabpanel" aria-labelledby="phase-tab-0"><div class="paired-diagram"><div class="video-views"><div class="video-lane dense-lane"><span>Dense view</span><div class="frame-strip" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i></div></div><div class="video-lane sparse-lane"><span>Sparse view</span><div class="frame-strip sparse-strip" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i></div></div></div><div class="flow-connector" aria-hidden="true"><span></span><span></span></div><div class="policy-node"><span class="policy-monogram">π</span><strong>Shared policy</strong></div></div><p class="animation-caption">Two temporal views of the same video, trained together.</p></div>
+        <div class="animation-phase" id="phase-1" role="tabpanel" aria-labelledby="phase-tab-1" hidden><div class="reward-diagram"><div class="intervals"><div><span>Dense interval</span><div class="interval-track"><i class="dense-interval"></i></div></div><div><span>Sparse interval</span><div class="interval-track"><i class="sparse-interval"></i></div></div></div><div class="gate-node"><span class="gate-label">Reference gate</span><strong>R<sub>grd</sub><sup>d</sup> &gt; R<sub>grd</sub><sup>s</sup></strong><span class="reward-label">Reward interval agreement</span></div></div><p class="animation-caption">Align with the dense prediction only when its grounding reward is higher.</p></div>
+        <div class="animation-phase" id="phase-2" role="tabpanel" aria-labelledby="phase-tab-2" hidden><div class="inference-diagram"><div class="inference-input"><span>Sparse frames</span><div class="frame-strip sparse-strip" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i></div></div><div class="single-flow" aria-hidden="true"></div><div class="policy-node"><span class="policy-monogram">S</span><strong>SAVER</strong></div><div class="single-flow" aria-hidden="true"></div><div class="answer-node"><span class="answer-symbol" aria-hidden="true">…</span><strong>Prediction</strong></div></div><p class="animation-caption">At inference, only sparse frames are needed.</p></div>
+      </div><div class="animation-progress" aria-hidden="true"><i></i></div>
+    </div>
+  </section>
+  <section id="abstract" class="abstract-band"><div class="container abstract-grid"><div><h2>Abstract</h2></div><p>Video-language models commonly assume that more temporal observations lead to more reliable reasoning. We question this assumption and argue that the key challenge is not merely processing more video frames efficiently, but learning to reason reliably under limited temporal evidence. We propose <strong>SAVER</strong>, a dense-to-sparse post-training framework that uses dense video views as training-time references for sparse-frame inference. During reinforcement post-training, paired dense and sparse views are optimized with grounding rewards and a reliability-gated reference reward, encouraging sparse view predictions to preserve task-relevant temporal evidence. Across three temporal grounding benchmarks and six video question-answering benchmarks, SAVER consistently improves performance across frame budgets. In particular, SAVER can match or surpass dense-frame Qwen3.5 baselines while using substantially fewer frames. These results show that temporal grounding can serve as an effective evidence-localization proxy for learning sparse video reasoning that transfers to broader video understanding tasks.</p></div></section>
+  <section id="results" class="section container">
+    <div class="section-heading"><div><h2>Small frame budgets.<br>Stronger video reasoning.</h2></div><p class="section-intro">SAVER and Qwen3.5, compared at the same model size and frame rate.</p></div>
+    <div class="results-panel"><div class="results-controls"><div class="field"><label for="model-size">Model size</label><select id="model-size"><option>0.8B</option><option selected>2B</option><option>4B</option></select></div><fieldset><legend>Inference frame rate</legend><div class="segmented"><button type="button" data-fps="0.1" aria-pressed="true">0.1 fps</button><button type="button" data-fps="0.5" aria-pressed="false">0.5 fps</button><button type="button" data-fps="2" aria-pressed="false">2.0 fps</button></div></fieldset><p class="legend"><span class="dot baseline"></span> Qwen3.5 <span class="dot saver"></span> SAVER</p></div>
+    <div id="result-summary" aria-live="polite" aria-atomic="true"><p class="loading">Loading benchmark results…</p></div>
+    <noscript><p class="noscript">For 2B at 0.1 fps, SAVER reaches 30.0% average grounding mIoU versus Qwen3.5’s 18.4%, and 50.8% average QA accuracy versus 45.9%. Enable JavaScript to explore all model sizes and frame rates, or <a href="results.json">download the complete result data</a>.</p></noscript>
+    <details class="benchmark-details"><summary>Explore individual benchmarks</summary><div id="benchmark-tables"></div></details></div>
+    <p class="results-note">Macro-averages over 3 grounding and 6 video-QA benchmarks. Individual results vary by task.</p>
+    <div class="takeaway"><span class="takeaway-mark" aria-hidden="true">≈</span><div><h3>Nearly dense performance, with sparse input.</h3><p>At 0.1 fps, SAVER-2B reaches <strong>50.8% average video-QA accuracy</strong>, close to Qwen3.5-2B at 2.0 fps (<strong>51.0%</strong>), while using 38 rather than 139 frames on average.</p></div></div>
+
+    <section class="efficiency" aria-labelledby="efficiency-title">
+      <div class="efficiency-heading"><div><p class="eyebrow">TABLE 8 / INFERENCE COST</p><h3 id="efficiency-title">Less input. Lower cost.</h3></div><p>Qwen3.5-2B · 2.0 → 0.1 fps</p></div>
+      <div class="efficiency-metrics"><div><strong>−86.8<span>%</span></strong><p>visual tokens</p><span>33,113 → 4,386</span></div><div><strong>−49.3<span>%</span></strong><p>peak GPU memory</p><span>11.30 → 5.73 GiB</span></div><div><strong>−63.6<span>%</span></strong><p>end-to-end latency</p><span>6.58 → 2.40 s</span></div></div>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Selected efficiency results from Table 8"><table class="efficiency-table"><caption>Selected benchmarks · dense → sparse</caption><thead><tr><th scope="col">Benchmark</th><th scope="col">Visual tokens</th><th scope="col">Peak memory (GiB)</th><th scope="col">E2E latency (s)</th></tr></thead><tbody>
+        <tr><th scope="row">Video-MME</th><td>69,750 → <strong>3,060</strong></td><td>18.72 → <strong>4.80</strong></td><td>10.03 → <strong>1.41</strong></td></tr>
+        <tr><th scope="row">LongVideoBench</th><td>92,160 → <strong>13,950</strong></td><td>20.65 → <strong>7.89</strong></td><td>16.59 → <strong>4.31</strong></td></tr>
+        <tr><th scope="row">VideoMMMU</th><td>89,160 → <strong>19,137</strong></td><td>21.54 → <strong>12.99</strong></td><td>20.62 → <strong>8.02</strong></td></tr>
+        <tr class="average"><th scope="row">Average · 9 benchmarks</th><td>33,113 → <strong>4,386</strong></td><td>11.30 → <strong>5.73</strong></td><td>6.58 → <strong>2.40</strong></td></tr>
+      </tbody></table></div>
+      <p class="efficiency-note">Base-model profiling on one H100 (96 GB), BF16, batch size 1; not a SAVER-specific speed measurement.</p>
+    </section>
+  </section>
+  <section id="examples" class="example-band"><div class="container"><div class="section-heading"><div><h2>Preserving temporal evidence.</h2></div><p class="section-intro">In this qualitative example, sparse Qwen3.5 predicts a broad interval. SAVER produces a tighter interval closer to the ground truth.</p></div><figure class="figure-panel"><a href="assets/grounding-example.png" target="_blank" rel="noopener" aria-label="Open full-resolution temporal grounding example"><img src="assets/grounding-example.png" width="1900" height="841" loading="lazy" alt="Pouring orange juice example: ground truth 7.5 to 13 seconds, sparse Qwen3.5 prediction 5.7 to 13.9 seconds, SAVER prediction 6.3 to 12.3 seconds."></a><figcaption><span>Qualitative temporal grounding example from the manuscript</span></figcaption></figure><p class="limitations"><strong>What remains challenging?</strong> Sparse frames can miss a key event entirely or confuse repeated actions. SAVER improves aggregate performance but cannot recover visual evidence that was never observed.</p></div></section>
+  <section id="models" class="section container"><div class="section-heading"><div><h2>Three sizes.<br>One sparse-input recipe.</h2></div><p class="section-intro">Qwen3.5-based checkpoints, available on Hugging Face.</p></div><div class="model-grid"><a href="https://huggingface.co/lmsdss/SAVER-0.8B" class="model-card"><h3>SAVER <strong>0.8B</strong></h3><span class="model-link">View on Hugging Face</span></a><a href="https://huggingface.co/lmsdss/SAVER-2B" class="model-card featured"><h3>SAVER <strong>2B</strong></h3><span class="model-link">View on Hugging Face</span></a><a href="https://huggingface.co/lmsdss/SAVER-4B" class="model-card"><h3>SAVER <strong>4B</strong></h3><span class="model-link">View on Hugging Face</span></a></div></section>
+  <section id="citation" class="citation-band"><div class="container citation-grid"><div><h2>Citation</h2></div><div class="citation-code"><button id="copy-citation" type="button">Copy BibTeX</button><pre><code id="bibtex">@misc{sun2026less,
+  title  = {Less from More: Reinforcing Sparse Video
+            Reasoning from Dense References},
+  author = {Sun, Wenfang and Du, Yingjun
+            and Snoek, Cees G. M.},
+  year   = {2026},
+  url    = {https://wenfangsun.cn/SAVER/}
+}</code></pre><p id="copy-status" role="status"></p></div></div></section>
+</main>
+<footer class="container"><a class="wordmark" href="#">SAVER</a><p>Less from More · University of Amsterdam</p><div><a href="https://github.com/lmsdss/SAVER">Code</a><a href="https://huggingface.co/collections/lmsdss/saver-less-from-more">Models</a></div></footer>
+</body>
+</html>
