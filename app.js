@@ -29,7 +29,7 @@ fpsButtons.forEach(button => button.addEventListener('click', () => {
   fpsButtons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
   render();
 }));
-fetch('results.json').then(response => { if (!response.ok) throw new Error('Result data unavailable'); return response.json(); }).then(json => { data = json; render(); }).catch(() => {
+fetch('results.json?v=five-rates').then(response => { if (!response.ok) throw new Error('Result data unavailable'); return response.json(); }).then(json => { data = json; render(); }).catch(() => {
   document.querySelector('#result-summary').innerHTML = '<p>For 2B at 0.1 fps, SAVER reaches 30.0% average grounding mIoU versus 18.4% for Qwen3.5, and 50.8% average QA accuracy versus 45.9%. Interactive results could not load; <a href="results.json">view the result data</a> or reload the page.</p>';
   fpsButtons.forEach(b => b.disabled = true);
   sizeControl.disabled = true;
