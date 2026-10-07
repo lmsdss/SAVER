@@ -41,7 +41,7 @@ MODEL_PATH=lmsdss/SAVER-2B FPS=0.1 NPROC_PER_NODE=1 \
   bash scripts/eval/evaluate.sh
 ```
 
-`MODEL_PATH` also accepts the 0.8B or 4B checkpoint, or a local model directory. By default, all nine benchmarks use boxed task prompts and answer parsers. To run a small one-task check:
+`MODEL_PATH` also accepts the 0.8B or 4B checkpoint, or a local model directory. To run a small one-task check:
 
 ```bash
 EVAL_TASKS=mmvu_val_mc_boxed EVAL_LIMIT=10 \
@@ -51,28 +51,15 @@ EVAL_TASKS=mmvu_val_mc_boxed EVAL_LIMIT=10 \
 Remove `EVAL_LIMIT` for full benchmark evaluation.
 
 ## Evaluate original Qwen3.5
-
-The baseline launcher uses non-boxed task prompts and answer parsers for all nine benchmarks.
-
+The baseline launcher evaluates the original Qwen3.5 model under the same video sampling setting.
 ```bash
 MODEL_PATH=Qwen/Qwen3.5-2B FPS=0.1 NPROC_PER_NODE=1 \
   bash scripts/eval/evaluate_qwen3_5.sh
 ```
 
-Set `MODEL_PATH` to another original Qwen3.5 model or a local base-model directory. Use `EVAL_TASKS=mmvu_val_mc` to select one task.
+## Evaluation outputs
 
-## Evaluation settings and outputs
-
-Both launchers use fixed-FPS sampling, `enable_thinking=False`, adaptive retry disabled, and `max_new_tokens=1024`. Sampled frame counts are constrained to [4, 256], subject to available source frames; resolution limits also apply. SAVER and baseline prompts and answer parsers differ in their boxed formatting.
-
-The unified 1,024-token output budget differs from some historical experiment settings. Existing paper scores have not been recomputed by packaging this release. Use the original run configurations when reproducing historical scores, or reevaluate both models under these shared settings.
-
-Each invocation writes a separate folder under `outputs/eval/` with its configuration, task metrics, generated answers, and frame statistics. `OUTPUT_PATH` overrides the result folder. To preview commands without loading models:
-
-```bash
-DRY_RUN=1 bash scripts/eval/evaluate.sh
-DRY_RUN=1 bash scripts/eval/evaluate_qwen3_5.sh
-```
+Each invocation writes a separate folder under `outputs/eval/` with its configuration, task metrics, generated answers, and frame statistics. `OUTPUT_PATH` overrides the result folder.
 
 ## Repository layout
 
@@ -83,8 +70,6 @@ scripts/eval/       SAVER and original Qwen3.5 evaluation launchers
 docs/DATA.md        Benchmark data preparation
 requirements.txt    Evaluation dependencies
 ```
-
-This release excludes training entry points, trainers, reward implementations, training annotations, checkpoints, videos, logs, and cluster submission scripts. Syntax and launcher previews are checked; a fresh dependency installation and full GPU evaluations have not been rerun for this release.
 
 ## Acknowledgments and license
 
