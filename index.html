@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <link rel="canonical" href="https://wenfangsun.cn/SAVER/">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=purple">
-  <link rel="stylesheet" href="style.css?v=title">
+  <link rel="stylesheet" href="style.css?v=five-rates">
   <title>SAVER · Less from More</title>
   <script src="app.js" defer></script>
 </head>
@@ -33,7 +33,7 @@
 
   </section>
   <section class="facts container" aria-label="Research at a glance">
-    <div><strong>9</strong><p>benchmarks</p></div><div><strong>3</strong><p>model sizes</p></div><div><strong>3</strong><p>frame-rate settings</p><span class="setting-rates">0.1 · 0.5 · 2.0 fps</span></div>
+    <div><strong>9</strong><p>benchmarks</p></div><div><strong>3</strong><p>model sizes</p></div><div><strong>5</strong><p>frame-rate settings</p><span class="setting-rates">0.1 · 0.2 · 0.5 · 1.0 · 2.0 fps</span></div>
   </section>
   <section id="method" class="section container">
     <div class="section-heading"><div><h2>More evidence in training.<br>Less input at inference.</h2></div><p class="section-intro">Dense and sparse views share one policy. The stronger dense prediction guides its sparse counterpart.</p></div>
@@ -43,7 +43,7 @@
   <section id="abstract" class="abstract-band"><div class="container abstract-grid"><div><h2>Abstract</h2></div><p>Video-language models commonly assume that more temporal observations lead to more reliable reasoning. We question this assumption and argue that the key challenge is not merely processing more video frames efficiently, but learning to reason reliably under limited temporal evidence. We propose <strong>SAVER</strong>, a dense-to-sparse post-training framework that uses dense video views as training-time references for sparse-frame inference. During reinforcement post-training, paired dense and sparse views are optimized with grounding rewards and a reliability-gated reference reward, encouraging sparse view predictions to preserve task-relevant temporal evidence. Across three temporal grounding benchmarks and six video question-answering benchmarks, SAVER consistently improves performance across frame budgets. In particular, SAVER can match or surpass dense-frame Qwen3.5 baselines while using substantially fewer frames. These results show that temporal grounding can serve as an effective evidence-localization proxy for learning sparse video reasoning that transfers to broader video understanding tasks.</p></div></section>
   <section id="results" class="section container">
     <div class="section-heading"><div><h2>Small frame budgets.<br>Stronger video reasoning.</h2></div><p class="section-intro">SAVER and Qwen3.5, compared at the same model size and frame rate.</p></div>
-    <div class="results-panel"><div class="results-controls"><div class="field"><label for="model-size">Model size</label><select id="model-size"><option>0.8B</option><option selected>2B</option><option>4B</option></select></div><fieldset><legend>Inference frame rate</legend><div class="segmented"><button type="button" data-fps="0.1" aria-pressed="true">0.1 fps</button><button type="button" data-fps="0.5" aria-pressed="false">0.5 fps</button><button type="button" data-fps="2" aria-pressed="false">2.0 fps</button></div></fieldset><p class="legend"><span class="dot baseline"></span> Qwen3.5 <span class="dot saver"></span> SAVER</p></div>
+    <div class="results-panel"><div class="results-controls"><div class="field"><label for="model-size">Model size</label><select id="model-size"><option>0.8B</option><option selected>2B</option><option>4B</option></select></div><fieldset><legend>Inference frame rate</legend><div class="segmented"><button type="button" data-fps="0.1" aria-pressed="true">0.1 fps</button><button type="button" data-fps="0.2" aria-pressed="false">0.2 fps</button><button type="button" data-fps="0.5" aria-pressed="false">0.5 fps</button><button type="button" data-fps="1" aria-pressed="false">1.0 fps</button><button type="button" data-fps="2" aria-pressed="false">2.0 fps</button></div></fieldset><p class="legend"><span class="dot baseline"></span> Qwen3.5 <span class="dot saver"></span> SAVER</p></div>
     <div id="result-summary" aria-live="polite" aria-atomic="true"><p class="loading">Loading benchmark results…</p></div>
     <noscript><p class="noscript">For 2B at 0.1 fps, SAVER reaches 30.0% average grounding mIoU versus Qwen3.5’s 18.4%, and 50.8% average QA accuracy versus 45.9%. Enable JavaScript to explore all model sizes and frame rates, or <a href="results.json">download the complete result data</a>.</p></noscript>
     <details class="benchmark-details"><summary>Explore individual benchmarks</summary><div id="benchmark-tables"></div></details></div>
