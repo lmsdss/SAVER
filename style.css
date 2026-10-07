@@ -9,3 +9,5 @@
 
 .lab-logo{display:inline-block;width:64px;border-radius:13px;overflow:hidden;transition:opacity .15s}.lab-logo:hover{opacity:.8}.lab-logo img{width:64px;height:64px}.hero .project-name{margin-top:18px}.setting-rates{display:block;font-size:.875rem;color:var(--muted);margin-top:3px}.facts>div{display:flex;flex-direction:column;justify-content:center}.facts{align-items:stretch}
 @media(max-width:620px){.lab-logo,.lab-logo img{width:52px;height:52px}.setting-rates{font-size:.75rem;line-height:1.5}.facts p{font-size:.8rem}.facts>div{padding:18px 6px}}
+
+.hero .lab-logo{margin-bottom:22px}
