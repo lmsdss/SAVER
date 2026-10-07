@@ -32,7 +32,7 @@ Prepare the benchmark videos following [data preparation](docs/DATA.md). Set `LM
 export LMMS_DATA_ROOT=/path/to/benchmark/videos
 ```
 
-The release includes task configurations for Charades-STA, ActivityNet, NeXT-GQA, MVBench, MMVU, LongVideoBench, VideoMMMU, Video-MME, and MVP. Raw videos and training annotations are not included.
+The release includes task configurations for Charades-STA, ActivityNet, NeXT-GQA, MVBench, MMVU, LongVideoBench, VideoMMMU, Video-MME, and MVP. 
 
 ## Evaluate SAVER
 
