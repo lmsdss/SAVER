@@ -17,7 +17,7 @@ Open http://localhost:8000/. The HTTP server is needed for the result-data fetch
 - Grounding value order: Charades-STA, ActivityNet, NExT-GQA, macro-average.
 - QA value order: Video-MME, MVBench, LongVideoBench, MMVU, VideoMMMU, MVP, macro-average.
 - Images are rendered from the supplied `framework_save.pdf` and `analysis_saver.pdf`. Original video frames belong to their respective benchmark providers.
-- No acceptance venue or arXiv identifier is claimed. The BibTeX entry is a project citation for the current manuscript. Update it and add a Paper button once the final publication URL is available.
+- The Paper button and BibTeX cite arXiv:2610.10893 (cs.CV), submitted 7 October 2026. No conference acceptance is claimed.
 
 ## Publishing
 

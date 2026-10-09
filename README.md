@@ -2,7 +2,7 @@
 
 **Less from More: Reinforcing Sparse Video Reasoning from Dense References**
 
-[Project Page](https://wenfangsun.cn/SAVER/) · [Models](https://huggingface.co/collections/lmsdss/saver-less-from-more)
+[Paper](https://arxiv.org/abs/2610.10893) · [Project Page](https://wenfangsun.cn/SAVER/) · [Models](https://huggingface.co/collections/lmsdss/saver-less-from-more)
 
 SAVER is a dense-to-sparse post-training framework for video reasoning under limited temporal evidence. This initial release provides evaluation code and links to model checkpoints. Training code will be released in a future update.
 
@@ -82,6 +82,20 @@ saver/              Video processing and inference confidence utilities
 scripts/eval/       SAVER and original Qwen3.5 evaluation launchers
 docs/DATA.md        Benchmark data preparation
 requirements.txt    Evaluation dependencies
+```
+
+## Citation
+
+```bibtex
+@misc{sun2026less,
+  title         = {Less from More: Reinforcing Sparse Video Reasoning from Dense References},
+  author        = {Wenfang Sun and Yingjun Du and Cees G. M. Snoek},
+  year          = {2026},
+  eprint        = {2610.10893},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2610.10893}
+}
 ```
 
 ## Acknowledgments and license
