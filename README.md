@@ -6,6 +6,9 @@
 [![Project Page](docs/assets/badge-project.svg)](https://wenfangsun.cn/SAVER/)
 [![Models](docs/assets/badge-models.svg)](https://huggingface.co/collections/lmsdss/saver-less-from-more)
 
+[![Papers with Code: ActivityNet Captions](https://paperswithcode.co/api/v1/papers/2610.10893/leaderboard-badge.svg?eval=36562&live=1)](https://paperswithcode.co/api/v1/papers/2610.10893/leaderboard-badge-link?eval=36562)
+[![Papers with Code: MVP](https://paperswithcode.co/api/v1/papers/2610.10893/leaderboard-badge.svg?eval=36568&live=1)](https://paperswithcode.co/api/v1/papers/2610.10893/leaderboard-badge-link?eval=36568)
+
 SAVER is a dense-to-sparse post-training framework for video reasoning under limited temporal evidence. This initial release provides evaluation code and links to model checkpoints. Training code will be released in a future update.
 
 ## Overview
