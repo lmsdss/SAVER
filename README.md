@@ -1,6 +1,4 @@
-# SAVER
-
-**Less from More: Reinforcing Sparse Video Reasoning from Dense References**
+# Less from More: Reinforcing Sparse Video Reasoning from Dense References
 
 [![Paper](docs/assets/badge-paper.svg)](https://arxiv.org/abs/2610.10893)
 [![Project Page](docs/assets/badge-project.svg)](https://wenfangsun.cn/SAVER/)
